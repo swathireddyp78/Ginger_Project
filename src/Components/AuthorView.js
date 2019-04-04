@@ -12,10 +12,12 @@ constructor(props){
 render(){
 		const author = this.props.article.author
 		var authorArray;
+
+	{/* Checking if the particular article has multiple authors*/}
         if(author instanceof Array){
+        	{/* Created the child component and passed author name as a parameter */}
             authorArray = author.map(
                 (auth,index)=>
-             
 	                <ArticlesCount authName = {auth.name} />            	
             )
         }else{

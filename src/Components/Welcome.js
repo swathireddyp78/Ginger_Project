@@ -20,6 +20,7 @@ class Welcome extends Component{
 		        	<CardHeader tag="h3">Articles</CardHeader>
 		        	<CardBody>
 		          		<CardText>To view the list of Articles.</CardText>
+		          		{/* link to view the list of articles page*/}
 		          		<Button outline color="info"><Link to="articleslist">Click here</Link></Button>
 		        	</CardBody>
 		        </Card>
@@ -27,6 +28,7 @@ class Welcome extends Component{
 		        	<CardHeader tag="h3">Authors</CardHeader>
 		        	<CardBody>
 		          		<CardText>To view the list of Authors.</CardText>
+		          		{/* link to view the list of authors page*/}
 		          		<Button outline color="info"><Link to="authorslist">Click here</Link></Button>
 		        	</CardBody>
 		      	</Card>

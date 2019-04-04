@@ -20,7 +20,7 @@ class ArticlesList extends Component{
             header: {'Access-Control-Allow-Origin': '*'}
         };
 
-        // API call to get the articles required
+        // API call to get the required articles satisfying the given condition
         axios.get('//export.arxiv.org/api/query?search_query=all:psychiatry+OR+all:theraphy+OR+all:"data science"+OR+all:"machine learning"&sortBy=lastUpdatedDate&sortOrder=descending&max_results=30',config)
         .then(res => {
 
@@ -53,11 +53,14 @@ class ArticlesList extends Component{
                         </tr>
                     </thead>
                     <tbody>
+                        {/* Using map to iterate each article and get the title and id fields */}
                         {this.state.articles.map(
                             (article,index)=>
                             <tr>
                                 <th scope="row">{index+1}</th>
+                                {/* Displaying the title of the article */}
                                 <td >{article.title}</td>
+                                {/* Splitting the part of id and passing it to article page to get the particular article */}
                                 <td><NavLink to={`${article.id.split("/").pop()}/article`} className="btn btn-info">View Article</NavLink></td>
                             </tr>
                             )}

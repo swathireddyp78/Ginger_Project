@@ -13,21 +13,30 @@ class ArticlesCount extends Component{
 	}
 
 	componentDidMount(){
+        // author name is the parameter passed from the parent 
         var aname=this.props.authName
         var config = {
             header: {'Access-Control-Allow-Origin': '*'}
         };
         
         var today = new Date();
+        // var counter = 0;
         var priorDate = new Date(new Date().setDate(today.getDate()-30));
         
         axios.get('//export.arxiv.org/api/query?search_query=all:='+aname+'&sortBy=lastUpdatedDate&sortOrder=descending',config)
         .then(res => {
             var XMLParser = require('fast-xml-parser');
-            var xml = XMLParser.parse(res.data);
+            var xml = XMLParser.parse(res.data); 
 
-            console.log(xml);
-            const result = xml.feed.entry.filter(ent=>new Date(ent.updated)>priorDate);
+            var result = xml.feed.entry.filter(ent=>new Date(ent.updated)>priorDate);
+            // I have tried to incrementally add the number of days if there is no data available for past 30 days
+            // do{
+            //     console.log("here");
+            //     counter += 30
+            //     var priorDate = new Date(new Date().setDate(today.getDate()-counter));
+            //     var result = xml.feed.entry.filter(ent=>new Date(ent.updated)>priorDate);
+            //     console.log(result.length);
+            // }while(result.length < 1);
 
 			this.setState({
 				authName:aname,

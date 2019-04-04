@@ -22,7 +22,7 @@ class AuthorsList extends Component{
 
         var today = new Date();
         var priorDate = new Date(new Date().setDate(today.getDate()-30));
-
+        // Here API is called to fetch the list of authors by getting the entire articles
         axios.get('//export.arxiv.org/api/query?search_query=all&sortBy=lastUpdatedDate&sortOrder=descending',config)
         .then(res => {
         	var XMLParser = require('fast-xml-parser');
