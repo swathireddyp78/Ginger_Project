@@ -21,11 +21,12 @@ class ArticlesCount extends Component{
         var today = new Date();
         var priorDate = new Date(new Date().setDate(today.getDate()-30));
         
-        axios.get('http://export.arxiv.org/api/query?search_query=all:='+aname+'&sortBy=lastUpdatedDate&sortOrder=descending',config)
+        axios.get('//export.arxiv.org/api/query?search_query=all:='+aname+'&sortBy=lastUpdatedDate&sortOrder=descending',config)
         .then(res => {
             var XMLParser = require('fast-xml-parser');
             var xml = XMLParser.parse(res.data);
 
+            console.log(xml);
             const result = xml.feed.entry.filter(ent=>new Date(ent.updated)>priorDate);
 
 			this.setState({

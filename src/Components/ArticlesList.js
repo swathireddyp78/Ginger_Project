@@ -21,7 +21,7 @@ class ArticlesList extends Component{
         };
 
         // API call to get the articles required
-        axios.get('http://export.arxiv.org/api/query?search_query=all:psychiatry+OR+all:theraphy+OR+all:"data science"+OR+all:"machine learning"&sortBy=lastUpdatedDate&sortOrder=descending&max_results=30',config)
+        axios.get('//export.arxiv.org/api/query?search_query=all:psychiatry+OR+all:theraphy+OR+all:"data science"+OR+all:"machine learning"&sortBy=lastUpdatedDate&sortOrder=descending&max_results=30',config)
         .then(res => {
 
             // Parsing the XML data

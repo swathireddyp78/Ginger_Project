@@ -18,7 +18,7 @@ class Article extends Component{
             header: {'Access-Control-Allow-Origin': '*'}
         };
         
-        axios.get('http://export.arxiv.org/api/query?search_query=&id_list='+aid,config)
+        axios.get('//export.arxiv.org/api/query?search_query=&id_list='+aid,config)
         .then(res => {
             var XMLParser = require('fast-xml-parser');
 			var xml = XMLParser.parse(res.data);

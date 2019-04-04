@@ -23,7 +23,7 @@ class AuthorsList extends Component{
         var today = new Date();
         var priorDate = new Date(new Date().setDate(today.getDate()-30));
 
-        axios.get('http://export.arxiv.org/api/query?search_query=all&sortBy=lastUpdatedDate&sortOrder=descending&max_results=30',config)
+        axios.get('//export.arxiv.org/api/query?search_query=all&sortBy=lastUpdatedDate&sortOrder=descending',config)
         .then(res => {
         	var XMLParser = require('fast-xml-parser');
             var xml = XMLParser.parse(res.data);
@@ -46,14 +46,14 @@ class AuthorsList extends Component{
 		
 		return(
 			<div className="container">
-				<card>
+				<Card>
 					<CardHeader>List of Authors</CardHeader>
 	        		<CardBody>
 	        			{articles.map((article,index)=>
 	          			<CardTitle><AuthorView article = {article} /></CardTitle>
 	          			)}
 	        		</CardBody>
-	        	</card>
+	        	</Card>
                 
             </div>
 		);

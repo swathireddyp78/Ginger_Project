@@ -25,7 +25,7 @@ class Article extends Component{
         this.setState({
             authorName:aname
         })
-        axios.get('http://export.arxiv.org/api/query?search_query=all:='+aname+'&sortBy=lastUpdatedDate&sortOrder=descending',config)
+        axios.get('//export.arxiv.org/api/query?search_query=all:='+aname+'&sortBy=lastUpdatedDate&sortOrder=descending',config)
         .then(res => {
             var XMLParser = require('fast-xml-parser');
             var xml = XMLParser.parse(res.data);
